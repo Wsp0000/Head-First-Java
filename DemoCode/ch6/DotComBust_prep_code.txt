@@ -67,3 +67,22 @@ METHOD: void startPlayingGame()
 		EVALUATE the user's guess by checkUserGuess() method
 	END REPEAT
 END METHOD
+
+METHOD: void checkUserGuess()
+	//get user guess and check it by calls checkYourself() method on all remaining DotCom instance
+	//DECLARE a result variable, named result and set it 'miss'
+	REPEAT each DotCom instance
+		EVALUATE the user's guess by checkYourself() method on One DotCom instance
+		IF dotComsList is empty then INVOKE finishGame() method on dotComBust
+	END REPEAT
+END METHOD
+
+METHOD: void finishGame()
+	//display player score and give comment
+	PRINT numOfGuesses
+	IF numOfGuesses is less than 18
+		THEN print comment good
+	ELSE 
+		THEN print comment insult
+END METHOD
+
