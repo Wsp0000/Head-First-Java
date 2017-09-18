@@ -1,0 +1,69 @@
+//class diagram
+┌-----------------------------------┐
+|			DotComBust
+├-----------------------------------┤
+|GameHelper helper
+|ArrayList dotComsList
+|int numOfGuesses
+├-----------------------------------┤
+|static void main (String[] args)
+|void setUpGame()
+|void startPlayingGame()
+|void checkUserGuess()
+|void finishGame()
+└-----------------------------------┘
+
+DotComBust_prep_code
+-----------------------------------
+DECLARE and instantiate the GameHelper instance variable, named helper.
+DECLARE and instantiate an ArrayList to hold the list of DotComs(initially three), named
+ dotComsList.
+DECLARE an int variable to hold the number of user guesses(so that we can give the user
+ a score at the end of the game). Name it numOfGuesses and set it to 0.
+//DECLARE a arrayList to keep DotCom names, named dotComNameList// not this version
+-----------------------------------
+-------------------------------------------------------------------------------------------
+DECLARE a main() method that create a DotComBust instance, call it dotComBust
+ INVOKE setUpGame() method on the DotComBust instance,
+ INVOKE startPlayingGame() method on the DotComBust instance
+
+DECLARE a setUpGame() method to create and initialize the DotCom objects with names
+ and locations. Display brief instructions to the user
+//on the DotComBust instance to create 3 DotCom instance 
+ and INVOKE setLocationCells() method on the DotCom
+DECLARE a startPlayingGame() method to asks the player to guesses and calls the
+ checkUserGuess() method until all the DotCom objects are removed from play.
+DECLARE a checkUserGuess() that loops through all remaining DotCom objects and 
+ calls each DotCom object's checkYourself() method.
+DECLARE a finishGame() method that prints a message about the user's perfomance, based
+on how many guesses it took to sink all of the DotCom objects.
+ 
+-------------------------------------------------------------------------------------------
+METHOD: static void main (String[] args)
+	//MAKE an instance of DotComBust to setUpGame and startPlayingGame
+	DECLARE a DotComBust instance call it dotComBust
+	INVOKE setUpGame() method on dotComBust 
+	INVOKE startPlayingGame() method on dotComBust
+END METHOD
+
+METHOD: void setUpGame()
+	//create and initialize the DotCom objects with names and locations
+	CREATE three DotCom objects.
+	SET a name for each DotCom
+	ADD the DotComs to the dotComsList( the ArrayList)
+	REPEAT with each DotCom objects in the dotComsList array
+		CALL the placeDotCom() method on the helper object, to get a randomly-selected
+		locations for this DotCom (three cells,vertically or horizontally alignd, on a 7 X 7
+		grid)
+		SET the location for each DotCom based on the result of the placeDotCom() call.
+	END REPEAT
+END METHOD
+
+METHOD: void startPlayingGame()
+	//to asks the player to guesses and calls the
+ checkUserGuess() method until all the DotCom objects are removed from play.
+	REPEAT while any DotComs exist
+		GET user input by calling the helper getUserInput() method
+		EVALUATE the user's guess by checkUserGuess() method
+	END REPEAT
+END METHOD

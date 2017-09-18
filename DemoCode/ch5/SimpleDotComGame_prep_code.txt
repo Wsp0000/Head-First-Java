@@ -1,0 +1,38 @@
+SimpleDotComGame_prep_code
+-----------------------------------
+
+-----------------------------------
+static void main (String[] args)
+-----------------------------------
+
+-------------------------------------------------------------------------------------------
+DECLARE a main() method that create a SimpleDotCom object, call it dotCom
+ and then set it locationCells to require user guess,
+ let SimpleDotCom instance checks it,
+ until instance sink and show user's number of guess.
+
+-------------------------------------------------------------------------------------------
+METHOD: static void main (String[] args)
+	DECLARE an int variable to hold the number of user guess, named numOfGuesses, set it to 0.
+	MAKE a new SimpleDotCom instance, call it dotCom
+	COMPUTE a random number between 0 and 4 that will be the starting location cell position.
+	MAKE an int array of locationCells with 3 ints using the randomly-generated number,
+		that number incremented by 1, and that number incremented by 2(example:3,4,5)
+	INVOKE the setLocationCells() method on the SimpleDotCom instance
+	DECLARE a boolean variable representing the state of the game, named isAlive, SET it to true
+	
+	WHILE the dot com is still alive (isAlive == true):
+		GET user input from command line
+		
+		//CHECK the user input
+		INVOKE the checkYourself() method on the SimpleDdotCom instance
+		INCREMENT numOfGuesses variable
+		//CHECK for dot com death
+		IF result is "kill"
+			SET isAlive to false (which means we won't enter the loop again)
+			PRINT numOfGuesses
+		END IF
+	END WHILE
+END METHOD
+
+
