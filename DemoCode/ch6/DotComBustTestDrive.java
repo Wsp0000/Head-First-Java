@@ -1,16 +1,19 @@
 //DotComBust_test_code
+import java.util.*;
 public class DotComBustTestDrive {
 	
 	public static void main(String[] args){
 		
-		SimpleDotCom dot = new SimpleDotCom();
+		DotComBust bust = new DotComBust();
 		
-		int[] locations = {2,3,4};
-		dot.setLocationCells(locations);
+		bust.setUpGame();
 		
-		String userGuess = "2";
-		String result = dot.checkYourself(userGuess);
+		GameHelper helper = new GameHelper();
+		//bust.checkUserGuess(helper.getUserInput("test and waiting for user guess"));
 		
+		//bust.finishGame();
+		bust.startPlaying();
+		/*
 		String testResult = "failed";
 		
 		if (result.equals("hit") ){
@@ -19,5 +22,6 @@ public class DotComBustTestDrive {
 			
 		}
 		System.out.println(testResult);
+		*/
 	}
 }

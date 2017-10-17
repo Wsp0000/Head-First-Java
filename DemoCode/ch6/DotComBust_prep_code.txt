@@ -16,7 +16,7 @@
 DotComBust_prep_code
 -----------------------------------
 DECLARE and instantiate the GameHelper instance variable, named helper.
-DECLARE and instantiate an ArrayList to hold the list of DotComs(initially three), named
+DECLARE and instantiate an ArrayList to hold the list of DotComs(initially three). Call it
  dotComsList.
 DECLARE an int variable to hold the number of user guesses(so that we can give the user
  a score at the end of the game). Name it numOfGuesses and set it to 0.
@@ -28,13 +28,16 @@ DECLARE a main() method that create a DotComBust instance, call it dotComBust
  INVOKE startPlayingGame() method on the DotComBust instance
 
 DECLARE a setUpGame() method to create and initialize the DotCom objects with names
- and locations. Display brief instructions to the user
+ and locations. Display brief instructions to the user.
 //on the DotComBust instance to create 3 DotCom instance 
- and INVOKE setLocationCells() method on the DotCom
-DECLARE a startPlayingGame() method to asks the player to guesses and calls the
+// and INVOKE setLocationCells() method on the DotCom
+ 
+DECLARE a startPlaying() method to asks the player for guesses and calls the
  checkUserGuess() method until all the DotCom objects are removed from play.
-DECLARE a checkUserGuess() that loops through all remaining DotCom objects and 
+ 
+DECLARE a checkUserGuess() method that loops through all remaining DotCom objects and 
  calls each DotCom object's checkYourself() method.
+ 
 DECLARE a finishGame() method that prints a message about the user's perfomance, based
 on how many guesses it took to sink all of the DotCom objects.
  
@@ -43,23 +46,23 @@ METHOD: static void main (String[] args)
 	//MAKE an instance of DotComBust to setUpGame and startPlayingGame
 	DECLARE a DotComBust instance call it dotComBust
 	INVOKE setUpGame() method on dotComBust 
-	INVOKE startPlayingGame() method on dotComBust
+	INVOKE startPlaying() method on dotComBust
 END METHOD
 
 METHOD: void setUpGame()
 	//create and initialize the DotCom objects with names and locations
 	CREATE three DotCom objects.
-	SET a name for each DotCom
-	ADD the DotComs to the dotComsList( the ArrayList)
+	SET a name for each DotCom.
+	ADD the DotComs to the dotComsList( the ArrayList).
 	REPEAT with each DotCom objects in the dotComsList array
 		CALL the placeDotCom() method on the helper object, to get a randomly-selected
-		locations for this DotCom (three cells,vertically or horizontally alignd, on a 7 X 7
-		grid)
+		location for this DotCom (three cells,vertically or horizontally alignd, on a 7 X 7
+		grid).
 		SET the location for each DotCom based on the result of the placeDotCom() call.
 	END REPEAT
 END METHOD
 
-METHOD: void startPlayingGame()
+METHOD: void startPlaying()
 	//to asks the player to guesses and calls the
  checkUserGuess() method until all the DotCom objects are removed from play.
 	REPEAT while any DotComs exist
@@ -68,21 +71,25 @@ METHOD: void startPlayingGame()
 	END REPEAT
 END METHOD
 
-METHOD: void checkUserGuess()
+METHOD: void checkUserGuess(String userGuess)
 	//get user guess and check it by calls checkYourself() method on all remaining DotCom instance
-	//DECLARE a result variable, named result and set it 'miss'
+	DECLARE a result variable, named result and set it to 'miss'.
 	REPEAT each DotCom instance
-		EVALUATE the user's guess by checkYourself() method on One DotCom instance
-		IF dotComsList is empty then INVOKE finishGame() method on dotComBust
+		EVALUATE the user's guess by checkYourself() method on each DotCom instance
+		//IF dotComsList is empty then INVOKE finishGame() method on dotComBust //error level
+		SET result variable to "hit" or "kill" if appropriate
+		IF the result is "kill", REMOVE the DotCom from the dotComsList
 	END REPEAT
+	DISPLAY the result value to the user
 END METHOD
 
 METHOD: void finishGame()
-	//display player score and give comment
-	PRINT numOfGuesses
-	IF numOfGuesses is less than 18
-		THEN print comment good
+	//DISPLAY player score and give comment
+	DISPLAY //numOfGuesses
+	IF numOfGuesses is small
+		DISPLAY print comment good
 	ELSE 
-		THEN print comment insult
+		DISPLAY comment insult
+	END IF
 END METHOD
 
